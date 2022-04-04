@@ -1,14 +1,6 @@
-package intermediate.lectures.lecture_21;
-/**
- * Prefix Sum : Sum of all values till that point
- *          PS[i] = PS[i-1] + array[i]
- *          Sum[s, e] = PS[e] - PS[s-1]
- *
- * Question : Given array, return true if there exists equilibrium index.
- * Hint     :               Index for which
- *   sum of elements on left side = sum of elements on right side
- */
-public class PrefixSumOfArray_4 {
+package intermediate.assignment.lecture_21;
+
+public class EquilibriumIndexOfArray {
     public static void main(String[] args) {
         // Input Array
         int array[] = {-7, 1, 5, 2, -4, 3, 0};
@@ -19,7 +11,7 @@ public class PrefixSumOfArray_4 {
 
         int equilibriumIndex = findEquilibriumIndex(prefixSumOfArray);
 
-        System.out.println("Equilibrium Index : "+equilibriumIndex);
+        System.out.println("Equilibrium Index : " + equilibriumIndex);
     }
 
     private static int findEquilibriumIndex(int[] prefixSumOfArray) {
@@ -39,7 +31,7 @@ public class PrefixSumOfArray_4 {
         int prefixSumOfArray[] = new int[array.length];
         prefixSumOfArray[0] = array[0];
         for (int indexPoint = 1; indexPoint < array.length; indexPoint++) {
-            prefixSumOfArray[indexPoint] = prefixSumOfArray[indexPoint-1] + array[indexPoint];
+            prefixSumOfArray[indexPoint] = prefixSumOfArray[indexPoint - 1] + array[indexPoint];
         }
         return prefixSumOfArray;
     }
