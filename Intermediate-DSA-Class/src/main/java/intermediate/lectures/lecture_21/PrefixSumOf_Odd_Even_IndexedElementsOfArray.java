@@ -31,30 +31,33 @@ import java.util.Arrays;
  *          PS_even :   {2, 2, 3, 3, 3, 3, 8, 8} :: summed only even indexed elements
  *
  * So we can use PS_odd for finding sum of all odd indexed elements in range [s, e]:
- *          PS_odd[s, e] = PS_odd[e] - PS_odd[s-1]
+ *        |----------------------------------------|
+ *        | PS_odd[s, e] = PS_odd[e] - PS_odd[s-1] |
+ *        |----------------------------------------|
  *       => PS_odd[3, 7] = PS_odd[7] - PS_odd[3-1] = 14 - 3 = 11
  *
  * Same as we can use PS_even for finding sum of all even indexed elements in range [s, e]:
- *          PS_even[s, e] = PS_even[e] - PS_even[s-1]
+ *        |-------------------------------------------|
+ *        | PS_even[s, e] = PS_even[e] - PS_even[s-1] |
+ *        |-------------------------------------------|
  *       => PS_even[1, 5] = PS_even[5] - PS_even[1-1] = 3 - 2 = 1
  *
  * ----------------------------------------------------------------------------------------------
  */
 public class PrefixSumOf_Odd_Even_IndexedElementsOfArray {
     public static void main(String[] args) {
-        int oddArray[] = {2, 3, 1, -1, 0, 8, 5, 4};
-        int prefixSumOfOddIndexedElements[] = findPrefixSumOfOddIndexedElements(oddArray);
+        int array[] = {2, 3, 1, -1, 0, 8, 5, 4};
+        int prefixSumOfOddIndexedElements[] = findPrefixSumOfOddIndexedElements(array);
         System.out.println("Prefix Sum of Odd indexed elements : "+Arrays.toString(prefixSumOfOddIndexedElements));
         System.out.println("Sum of all odd elements in range [3, 7] : "+(prefixSumOfOddIndexedElements[7] - prefixSumOfOddIndexedElements[3-1]));
-        int evenArray[] = {2, 3, 1, -1, 0, 8, 5, 4};
-        int prefixSumOfEvenIndexedElements[] = findPrefixSumOfEvenIndexedElements(evenArray);
+        int prefixSumOfEvenIndexedElements[] = findPrefixSumOfEvenIndexedElements(array);
         System.out.println("Prefix Sum of Even indexed elements : "+Arrays.toString(prefixSumOfEvenIndexedElements));
         System.out.println("Sum of all even elements in range [1, 5] : "+(prefixSumOfEvenIndexedElements[5] - prefixSumOfEvenIndexedElements[1-1]));
     }
 
     private static int[] findPrefixSumOfOddIndexedElements(int[] array) {
         int resultArray[] = new int[array.length];
-        array[0] = 0;
+        resultArray[0] = 0;
         for (int oddIndexPoint = 1; oddIndexPoint < array.length; oddIndexPoint++) {
             if (oddIndexPoint % 2 != 0)
                 resultArray[oddIndexPoint] = resultArray[oddIndexPoint-1] + array[oddIndexPoint];
