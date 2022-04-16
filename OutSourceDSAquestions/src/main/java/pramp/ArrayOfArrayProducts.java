@@ -45,7 +45,7 @@ public class ArrayOfArrayProducts {
         System.out.println(Arrays.toString(rightArray));
 
         /**
-         * At the time of output, we can use both array for multiplication
+         * At the time of output, we need to multiply both the array
          * [84, 24, 56, 42]
          */
         int outputArray[] = new int[array.length];
@@ -57,10 +57,10 @@ public class ArrayOfArrayProducts {
     }
 }
 
-/*
+/**
 Input       :     Output        :   Hint
 {8,10,2}    :     {20,16,80}    :   # by calculating = [10*2, 8*2, 8*10]
 {2,7,3,4}   :     {84,24,56,42} :   # by calculating = [7*3*4, 2*3*4, 2*7*4, 2*7*3]
 
-Reference   :   https://www.geeksforgeeks.org/a-product-array-puzzle/
+Reference   :     https://www.geeksforgeeks.org/a-product-array-puzzle/
 */
