@@ -26,19 +26,19 @@ public class Bulbs {
         return count;
     }
 
+    /**
+     * Brute force solution, TC : O(n^2)
+     * @param array
+     * @return
+     */
     private static int switchOnAllTheBulbs(int[] array) {
         int count = 0;
+        int bulbOn = 1, bulbOff = 0;
         for (int index = 0; index < array.length; index++) {
-            int bulbOn = 1, bulbOff = 0;
-            if(array[index] == bulbOn){
-                continue;
-            }else {
+            if(array[index] == bulbOff){
                 array[index] = bulbOn;
                 for (int pressSwitch = index + 1; pressSwitch < array.length ; pressSwitch++) {
-                    if (array[pressSwitch] == bulbOn)
-                        array[pressSwitch] = bulbOff;
-                    else if (array[pressSwitch] == bulbOff)
-                        array[pressSwitch] = bulbOn;
+                    array[pressSwitch] = bulbOn - array[pressSwitch];
                 }
                 count++;
             }
