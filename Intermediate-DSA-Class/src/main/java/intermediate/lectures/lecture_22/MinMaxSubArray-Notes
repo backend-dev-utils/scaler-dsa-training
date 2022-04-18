@@ -1,0 +1,66 @@
+
+#  CarryForwardArray_4 Explanation
+------------------------------------------------------------
+ 
+ Given an array, Return the length of smallest sub-array which contains both MAX & MIN element of the array.
+ 
+ Sub-Array : A continuous part of the array
+ 
+           int array[] = {1, 2, 3, 1, 3, 4, 6, 4, 6, 3}
+                 index => 0  1  2  3  4  5  6  7  8  9
+            maxElement = 6, minElement = 1
+ 
+   So what is the smallest part (minimum in length) of array,
+   which consist both minElement & maxElement ?
+ 
+ Output : from index 6 to index 3
+            so length = 4
+ 
+ Observation 1:
+       In the answer sub-array minElement & maxElement are on the corner.
+ 
+ Observation 2:
+       In the answer sub-array there will be only 1 minElement and 1 maxElement is required.
+ 
+   Therefore, we can say that solutions can be only two types:
+               minElement ------------ maxElement
+               maxElement ------------ minElement
+ 
+ Hint :
+        1. For every minElement, find the closest maxElement on the right side
+        2. For every maxElement, find the closest minElement on the right side
+
+ PseudoCode : Brute Force Solution
+        answer = Integer.MAX_VALUE
+        find maxElement, minElement
+ 
+        for{ i=0; i<length; i++
+           => start searching for min-max Element
+           #1. found minElement at first
+           if(array[i] == minElement){
+             => search maxElement from next index
+               for{ j=i+1; j<length; j++
+                   if(array[j] == maxElement){
+                       =>  we need to find the minimum value of previous answer and current sub-array length
+                       answer = minimumOf(answer, j-i+1);
+                       => breaking the conditions here itself because more maxElement can be present on j+1 (next) index
+                       => and there is no point going further going more right index
+                       break;
+                   }
+               }
+           }
+           #2. found maxElement at first (follow same step as previous one)
+           else if(array[i] == maxElement){
+               => search minElement from next index
+                 for{ j=i+1; j<length; j++
+                     if(array[j] == minElement){
+                         =>  we need to find the maximum value of previous answer and current sub-array length
+                         answer = minimumOf(answer, j-i+1);
+                         => breaking the conditions here itself because more minElement can be present on j+1 (next) index
+                         break;
+                    }
+                }
+            }
+        }
+ 
+ 

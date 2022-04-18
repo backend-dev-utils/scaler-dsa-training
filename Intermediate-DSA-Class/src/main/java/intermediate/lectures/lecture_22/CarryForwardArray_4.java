@@ -1,7 +1,13 @@
-package intermediate.assignment.lecture_22;
+package intermediate.lectures.lecture_22;
 
-public class ClosestMinMax {
-
+/**
+ * Given an array, Return the length of smallest sub-array which consists both MAX & MIN element of the array.
+ * Sub-Array : A continuous part of the array
+ *          int array[] = {1, 2, 3, 1, 3, 4, 6, 4, 6, 3}
+ *                index => 0  1  2  3  4  5  6  7  8  9
+ *           maxElement = 6, minElement = 1
+ */
+public class CarryForwardArray_4 {
     public static void main(String[] args) {
         int array[] = {1, 2, 3, 1, 3, 4, 6, 4, 6, 3};
 
@@ -16,7 +22,7 @@ public class ClosestMinMax {
      * @return minimum sub-array length
      */
     private static int findMinMaxSubArray(int[] array) {
-        int closestMinMax = Integer.MAX_VALUE;
+        int answer = Integer.MAX_VALUE;
 
         int maxElement = Integer.MIN_VALUE;
         int minElement = Integer.MAX_VALUE;
@@ -40,7 +46,7 @@ public class ClosestMinMax {
                     //
                     // Searching for nearest minElement
                     if (array[nextIndex] == minElement){
-                        closestMinMax = minimumOf(closestMinMax, nextIndex - currentIndex + 1);
+                        answer = minimumOf(answer, nextIndex - currentIndex + 1);
                         break;
                     }
                 }
@@ -51,13 +57,13 @@ public class ClosestMinMax {
                     //
                     // Searching for nearest maxElement
                     if (array[nextIndex] == maxElement){
-                        closestMinMax = minimumOf(closestMinMax, nextIndex - currentIndex + 1);
+                        answer = minimumOf(answer, nextIndex - currentIndex + 1);
                         break;
                     }
                 }
             }
         }
-        return closestMinMax;
+        return answer;
     }
 
     /**

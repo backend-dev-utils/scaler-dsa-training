@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * @author gautamraj - ssdbad
+ *
  * Given an array of integers arr, you’re asked to calculate for each index i
  * the product of all integers except the integer at that index (i.e. except arr[i]).
  * Implement a function arrayOfArrayProducts that takes an array of integers and
