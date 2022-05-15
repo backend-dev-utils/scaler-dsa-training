@@ -21,6 +21,15 @@ public class ArrayOfArrayProducts {
     }
 
     private static int[] findArrayOfArrayProducts(int[] array) {
+
+        /**
+         * Handling testcase of, array-length == 0 || null array || array-length == 1
+         */
+        if(array.length == 0 || array == null || array.length ==1){
+            return new int[0];
+        }
+
+        int x = Integer.valueOf("123");
         /**
          * Finding left product array with left-most index value 1
          * [1, 2, 14, 42]
