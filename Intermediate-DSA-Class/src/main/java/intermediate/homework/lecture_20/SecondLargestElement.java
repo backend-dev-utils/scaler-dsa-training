@@ -26,7 +26,7 @@ public class SecondLargestElement {
                 387719274, 265016712, 781194413, 603543683, 858488880, 507282759, 160281629,
                 284063304, 90476958, 44878799, 247507807, 423179927, 832295801};
         int secondLargestElement = findSecondLargestElement(array);
-        System.out.println(secondLargestElement);
+        System.out.println("2nd largest element : "+secondLargestElement);
     }
 
     private static int findSecondLargestElement(int[] array) {
