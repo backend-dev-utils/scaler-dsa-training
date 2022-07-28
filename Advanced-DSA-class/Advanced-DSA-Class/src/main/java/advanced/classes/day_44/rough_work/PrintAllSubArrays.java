@@ -1,4 +1,4 @@
-package advanced.classes.day_44.assignment.rough_work;
+package advanced.classes.day_44.rough_work;
 
 import java.util.Arrays;
 

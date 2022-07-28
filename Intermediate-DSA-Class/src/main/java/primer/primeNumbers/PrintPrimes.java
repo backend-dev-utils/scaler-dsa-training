@@ -2,14 +2,16 @@ package primer.primeNumbers;
 
 import java.util.Scanner;
 
-public class IsPrime {
+public class PrintPrimes {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int number = sc.nextInt();
-        if (isPrimeNumber(number))
-            System.out.println("YES");
-        else
-            System.out.println("NO");
+
+        for (int i = 2 ; i <= number ; i++) {
+            if (isPrimeNumber(i)){
+                System.out.println(i);
+            }
+        }
     }
 
     private static boolean isPrimeNumber(int number){
