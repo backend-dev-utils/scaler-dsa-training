@@ -7,7 +7,7 @@ import java.util.Arrays;
  */
 public class DecimalToBinary {
     public static void main(String[] args) {
-        long number = 3221225472l;
+        long number = 25;
         int binaryNumber[] = new int[32];
         int index = binaryNumber.length - 1;
         while(number != 0){
