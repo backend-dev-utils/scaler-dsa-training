@@ -47,3 +47,49 @@ public class PowersOf2 {
     }
 
 }
+
+/*
+
+Approach O(1)
+
+public static boolean isPowerOfTwo(long n)
+  {
+    return (n != 0) && ((n & (n - 1)) == 0);
+  }
+
+
+static boolean isPowerOfTwo(int n)
+    {
+        if (n == 0)
+            return false;
+        if ((n & (~(n - 1))) == n)
+            return true;
+        return false;
+    }
+
+
+static boolean isPowerOfTwo (int x)
+    {
+        return x!=0 && ((x&(x-1)) == 0);
+     }
+
+
+ static boolean isPowerOfTwo(int n)
+    {
+        int cnt = 0;
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                cnt++; // if n&1 == 1 keep incrementing cnt
+                // variable
+            }
+            n = n >> 1; // keep dividing n by 2 using right
+                        // shift operator
+        }
+        if (cnt == 1) {
+            // if cnt = 1 only then it is power of 2
+            return true;
+        }
+        return false;
+    }
+
+ */
