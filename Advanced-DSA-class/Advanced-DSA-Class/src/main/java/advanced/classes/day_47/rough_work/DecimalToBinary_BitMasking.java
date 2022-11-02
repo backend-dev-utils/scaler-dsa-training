@@ -9,6 +9,6 @@ public class DecimalToBinary_BitMasking {
             sb.append(lastBit);
             number = number >> 1;
         }
-        System.out.println(sb.reverse());
+        System.out.println(sb.reverse().toString());
     }
 }
